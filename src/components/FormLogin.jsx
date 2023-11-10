@@ -33,7 +33,7 @@ export const FormLogin = () => {
     localStorage.setItem('token', response.data.jwt);
     console.log(    localStorage.setItem('token', response.data.jwt)
     )
-    localStorage.setItem('usuario', response.data.user);
+    localStorage.setItem('usuario', JSON.stringify(response.data.user));
     
     navigate('/Dashboard');
     })
