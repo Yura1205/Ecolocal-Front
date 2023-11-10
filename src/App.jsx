@@ -7,6 +7,7 @@ import { Products } from './Pages/Products';
 import { Profiles } from './Pages/Profiles';
 import { Settings } from './Pages/Settings';
 import { Restaurants } from './Pages/Restaurants';
+import { Info } from './Pages/Info';
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
       <Route path='/Profiles' element={<Profiles />}/>
       <Route path='/Settings' element={<Settings />}/>
       <Route path='/Restaurants' element={<Restaurants/>}/>
+      <Route path='/Info' element={<Info />}/>
     </Routes>
   )
 }
