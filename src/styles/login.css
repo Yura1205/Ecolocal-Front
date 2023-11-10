@@ -48,12 +48,12 @@
 .input_user{
     margin: 1%;
     margin-left: 5%;
-    color: azure;
+    color: white;
 }
 .input_password{
     margin: 1%;
     margin-left: 5%;
-    
+    color: white;
 }
 
 .inputs {

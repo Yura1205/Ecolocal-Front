@@ -24,27 +24,6 @@
     
 }
 
-.Sidebar{
-    width: 14rem;
-    height: calc(213vh );
-    border-right: 2px solid Blue;
-}
-.lista{
-    list-style: none;
-    padding: 1rem 2rem;
-}
-.elm_lista {
-    margin-bottom: 1rem;
-}
-a{
-    text-decoration: none;
-
-}
-&.active{
-    background-color: gray;
-
-}
-
 .products_main{
     position: relative;
     height: 128.5vh;
@@ -62,18 +41,3 @@ a{
 
 }
 
-.regions_main{
-    position: relative;
-    height: 128.5vh;
-    width: 100vw;
-    background: rgb(255, 255, 255);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 20px;
-    display:flex;
-    flex-direction: column;
-    justify-content:space-between;
-    align-items: center;
-    margin-top: 16.39vh;
-}

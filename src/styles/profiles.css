@@ -1,4 +1,19 @@
-.Contenedor1{
-    background-image: url('../assets/adultos-jovenes-disfrutan-festival-tradicional-bailando-al-aire-libre-generado-ia.jpg');
-    background-size: cover;
+.profiles_main{
+    width: 100vw;
+    height: 90vh;
+    display: flex;
+    align-items: start;
+    margin-top: 10vh;
+}
+
+.Sidebar{
+    width: 25rem;
+    height: 90vh;
+    border-right: 0.5px solid gray;
+    flex-direction: column;
+    align-items: center;
+}
+
+.PfPic{
+    padding-left: 3.1rem;
 }

@@ -48,24 +48,24 @@
 
 .input_user{
     margin: 1%;
+    color: white;
 
 }
 .input_password{
     margin: 1%;
-
+    color: white;
 }
 .input_name{
     margin: 1%;
-
+    color: white;
 }
 .input_lastname{
     margin: 1%;
-
+    color: white;
 }
 .input_email{
     margin: 1%;
-    
-
+    color: white;
 }
 
 
@@ -80,7 +80,7 @@
     background: rgba(0, 0, 0, 0.418);
     margin-top: 10px;
     margin-bottom: 10px;
-    
+    color: white;
 }
 
 .labels{

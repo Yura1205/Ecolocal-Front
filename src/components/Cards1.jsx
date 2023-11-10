@@ -2,12 +2,9 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Card1 from '../assets/Guatapé.jpg';
 import '../styles/dashboard.css';
-import { useNavigate } from 'react-router-dom';
 
 function Cards1() {
-  const ir = ()=>{
-    navigate("/Regions")
-  }
+  
    return (
     <Card style={{ width: '18rem' }}>
       <img className="img_card"src = {Card1} alt = "Card1" />
