@@ -4,7 +4,7 @@ import Login from './Pages/Login';
 import { Dashboard } from './Pages/Dashboard';
 import SignUp from './Pages/SignUp';
 import { Products } from './Pages/Products';
-
+import { Info } from './Pages/Info';
 import { Settings } from './Pages/Settings';
 import { Restaurants } from './Pages/Restaurants';
 import ProfilePage from './Pages/Profiles';
