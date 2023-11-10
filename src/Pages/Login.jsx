@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { FormLogin } from '../components/FormLogin'
-import '../styles/Login.css'
+import '../styles/login.css'
 
 const Login = () => {
 
