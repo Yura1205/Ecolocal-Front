@@ -13,6 +13,8 @@ import calentao from '../assets/calentao.jpg';
 import arepap from '../assets/arepap.jpg'; 
 import arepac from '../assets/arepac.jpg'; 
 import arepamp from '../assets/arepamp.jpg'; 
+import { useNavigate } from 'react-router-dom'
+import { ButtonCardsP } from './ButtonCardsP';
 
 const ProductsData = [
     {
@@ -107,24 +109,26 @@ const stylesProducts = {
     height: "220px"
   },
   CardContent: {
-    height: "250px"
+    height: "260px",
+    
   },
-  buttonCardsP: {
-    height: "50px",
-    width: "100px",
-    backgroundColor: "#FFC300",
-  },
+  
 };
-
 
 const ListProducts2 = () => {
     const rowsp = [];
     const itemsPerRowp = 4;
+    const navigate = useNavigate();
 
     for (let i = 0; i < ProductsData.length; i += itemsPerRowp) {
         const rowItemsp = ProductsData.slice(i, i + itemsPerRowp);
         rowsp.push(rowItemsp);
     }
+
+    const SaberMas = () => {
+        navigate('/Info');
+    };
+    
 
     return (
         <>
@@ -148,7 +152,7 @@ const ListProducts2 = () => {
                                         <Typography variant="body2" color="text.secondary">
                                             {service.description}
                                         </Typography>
-                                        <button className="buttonCardsP">Agregar al carrito</button>  
+                                        <ButtonCardsP fnSaberMas={SaberMas}/>
                                     </CardContent>
                                 </Card>
                             </Grid>

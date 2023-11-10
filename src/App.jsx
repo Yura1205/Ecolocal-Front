@@ -4,9 +4,10 @@ import Login from './Pages/Login';
 import { Dashboard } from './Pages/Dashboard';
 import SignUp from './Pages/SignUp';
 import { Products } from './Pages/Products';
-import { Profiles } from './Pages/Profiles';
+
 import { Settings } from './Pages/Settings';
 import { Restaurants } from './Pages/Restaurants';
+import ProfilePage from './Pages/Profiles';
 
 function App() {
 
@@ -17,9 +18,10 @@ function App() {
       <Route path='/Dashboard' element={<Dashboard />}/>
       <Route path='/SignUp' element={<SignUp />}/>
       <Route path='/Products' element={<Products />}/>
-      <Route path='/Profiles' element={<Profiles />}/>
+      <Route path='/Profiles' element={<ProfilePage />}/>
       <Route path='/Settings' element={<Settings />}/>
       <Route path='/Restaurants' element={<Restaurants/>}/>
+      <Route path='/Info' element={<Info />}/>
     </Routes>
   )
 }

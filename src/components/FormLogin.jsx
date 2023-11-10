@@ -8,6 +8,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import Constantes from '../utils/Constantes'
+
 export const FormLogin = () => {
   const endPoint = "http://89.116.25.43:4291/api/usuarios/login";
 
@@ -31,7 +32,7 @@ export const FormLogin = () => {
       console.log(response);
     localStorage.setItem('token', response.data.jwt);
     localStorage.setItem('usuario', response.data.user);
-    localStorage.setItem('username', response.data.user.usuario);
+    
     navigate('/Dashboard');
     })
     .catch(error => {
@@ -48,7 +49,6 @@ export const FormLogin = () => {
   return (
     <div className="card_main">
       <div className="card_form">
-        <img src={Logo}/>
         <h4>Artificial Intelligence giving you travel recommendations</h4>
         <h5>Welcome back! Please login to your account.</h5>
         <div className="input_user">
