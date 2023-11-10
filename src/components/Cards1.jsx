@@ -1,6 +1,6 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import Card1 from '../assets/card1.png';
+import Card1 from '../assets/Guatapé.jpg';
 import '../styles/dashboard.css';
 import { useNavigate } from 'react-router-dom';
 

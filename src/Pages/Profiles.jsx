@@ -11,7 +11,7 @@ export const Profiles = () => {
       <div className='products_main'>
         <div className='flex'>
           <div className='w-screen-h-screen'>
-            <ListUsers />
+          
           </div>
         </div>
       </div>
