@@ -1,7 +1,7 @@
 import React from 'react'
 import Logo from '../assets/logo.png'
 import Card1 from '../assets/card1.png'
-import '../styles/Login.css'
+import '../styles/login.css'
 import { LoginButton }   from '../components/loginButton.jsx'
 import { SignInButton2 } from './SignInButton2'
 import { useState } from 'react'
