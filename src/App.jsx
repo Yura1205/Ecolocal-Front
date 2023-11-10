@@ -21,6 +21,7 @@ function App() {
       <Route path='/Profiles' element={<ProfilePage />}/>
       <Route path='/Settings' element={<Settings />}/>
       <Route path='/Restaurants' element={<Restaurants/>}/>
+      <Route path='/Info' element={<Info />}/>
     </Routes>
   )
 }
