@@ -4,7 +4,7 @@ header{
     left: 0;
     width: 100%;
     padding: 20px 100px;
-    background: #006700; 
+    background: #042e04; 
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -59,8 +59,8 @@ header{
 }
 
 .logo {
-    width: 10rem;
-    height: 4rem;
+    width: 8rem;
+    height: 3rem;
 }
 
 
