@@ -48,7 +48,6 @@ export const FormLogin = () => {
   return (
     <div className="card_main">
       <div className="card_form">
-        <img src={Logo}/>
         <h4>Artificial Intelligence giving you travel recommendations</h4>
         <h5>Welcome back! Please login to your account.</h5>
         <div className="input_user">
