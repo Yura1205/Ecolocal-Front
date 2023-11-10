@@ -11,7 +11,7 @@ import Constantes from '../utils/Constantes'
 
 export const SignUpForm = () => {
 
-    const endPoint = "http://89.116.25.43:4291/api/usuarios/create";
+    const endPoint = Constantes.URL_SERVICIO + "/usuarios/create";
 
     const [nombres, setNombres] = useState('');
     const [apellidos, setApellidos] = useState('');

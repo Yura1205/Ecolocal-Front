@@ -10,7 +10,7 @@ import axios from 'axios'
 import Constantes from '../utils/Constantes'
 
 export const FormLogin = () => {
-  const endPoint = "http://89.116.25.43:4291/api/usuarios/login";
+  const endPoint = Constantes.URL_SERVICIO + "/usuarios/login";
 
   const[usuario, setUsuario] = useState('');
   const[password, setPassword] = useState('');
@@ -31,6 +31,8 @@ export const FormLogin = () => {
     .then(response => {
       console.log(response);
     localStorage.setItem('token', response.data.jwt);
+    console.log(    localStorage.setItem('token', response.data.jwt)
+    )
     localStorage.setItem('usuario', response.data.user);
     
     navigate('/Dashboard');
