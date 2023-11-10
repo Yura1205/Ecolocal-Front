@@ -1,16 +1,75 @@
-import React from 'react'
-import profilePic from '../assets/profilePic.jpg'
+import React, { useState, useEffect } from 'react';
+import profilePic from '../assets/profilePic.jpg';
+import Button from "react-bootstrap/esm/Button";
+import { MdDelete } from 'react-icons/md'
+import { FaUserEdit } from 'react-icons/fa'
+import { BiSolidSave } from 'react-icons/bi'
 
 export const DashboardSidebar = () => {
-  const usuarioA = localStorage.getItem('username')
+  const usuarioA = localStorage.getItem('username');
+  const [defaultPicture, setDefaultPicture] = useState(profilePic);
+  const [selectedPicture, setSelectedPicture] = useState(null);
+
+  useEffect(() => {
+    // Cargar imagen por defecto al montar el componente
+    setDefaultPicture(profilePic);
+  }, []);
+
+  const handlePictureChange = (event) => {
+    // Reemplazar la imagen por defecto con la nueva imagen cargada
+    const newPicture = event.target.files[0];
+    setDefaultPicture(URL.createObjectURL(newPicture));
+    setSelectedPicture(newPicture);
+  };
+
+  const handleDeletePicture = () => {
+    // Restaurar la imagen por defecto al eliminar la imagen del usuario
+    setDefaultPicture(profilePic);
+    setSelectedPicture(null);
+  };
+
+  const handleSavePictures = () => {
+    // Guardar o procesar la imagen seleccionada en la base de datos o API
+    if (selectedPicture) {
+      console.log(selectedPicture);
+      // Aquí puedes enviar la imagen al servidor o realizar otras acciones necesarias
+    }
+  };
 
   return (
     <>
       <div className='Sidebar'>
-        <img className ="PfPic"  src={profilePic} alt = "pfPic"/> 
-        {usuarioA}    
+        <img
+          className="PfPic"
+          src={selectedPicture ? URL.createObjectURL(selectedPicture) : defaultPicture}
+          alt="pfPic"
+        />
+        <div className='buttonsImg'>
+          <label className="file-input-label">
+            <input className="InputImg" type="file" onChange={handlePictureChange} />
+            Cambiar foto de perfil
+          </label>
+          {selectedPicture && (
+            <div>
+              <Button variant="danger" className="w-10 m-1"
+                onClick={handleDeletePicture}>
+                <MdDelete />
+              </Button>
+            </div>
+          )}
+          {selectedPicture && (
+            <Button variant="primary" className="w-10 m-1 mb-2 "
+              onClick={handleSavePictures}>
+              <BiSolidSave />
+            </Button>
+          )}
+        </div>
+        <div className='textSidebar'>
+          {usuarioA}
+          <p>Bienvenid@!</p>
+        </div>
       </div>
-
     </>
-  )
-}
+  );
+};
+

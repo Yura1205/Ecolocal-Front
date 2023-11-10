@@ -10,10 +10,49 @@
     width: 25rem;
     height: 90vh;
     border-right: 0.5px solid gray;
+    display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.PfPic{
-    padding-left: 3.1rem;
-}
+.PfPic {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 100%; /* Hace que la imagen sea circular */
+    overflow: hidden;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+  }
+
+
+.file-input-label {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+  }
+  
+  .file-input-label input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  .buttonsImg{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .textSidebar{
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    font-size: 1.5rem;
+  }
