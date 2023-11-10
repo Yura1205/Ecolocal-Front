@@ -8,6 +8,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import Constantes from '../utils/Constantes'
+
 export const FormLogin = () => {
   const endPoint = Constantes.URL_SERVICIO + '/login';
 
@@ -48,7 +49,6 @@ export const FormLogin = () => {
   return (
     <div className="card_main">
       <div className="card_form">
-        
         <h4>Artificial Intelligence giving you travel recommendations</h4>
         <h5>Welcome back! Please login to your account.</h5>
         <div className="input_user">
