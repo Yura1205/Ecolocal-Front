@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import profilePic from '../assets/profilePic.jpg';
 import Button from "react-bootstrap/esm/Button";
-import { MdDelete } from 'react-icons/md'
-import { FaUserEdit } from 'react-icons/fa'
-import { BiSolidSave } from 'react-icons/bi'
+import { MdDelete } from 'react-icons/md';
+import { BiSolidSave } from 'react-icons/bi';
 
 export const DashboardSidebar = () => {
   const usuarioA = localStorage.getItem('username');
