@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import profilePic from '../assets/profilePic.jpg';
 import Button from "react-bootstrap/esm/Button";
-import { MdDelete } from 'react-icons/md'
-import { FaUserEdit } from 'react-icons/fa'
-import { BiSolidSave } from 'react-icons/bi'
+import { MdDelete } from 'react-icons/md';
+import { BiSolidSave } from 'react-icons/bi';
+import InfoUsers2 from './InfoUsers2';
+import {usuarioAutenticado} from './InfoUsers2';
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+
 
 export const DashboardSidebar = () => {
-  const usuarioA = localStorage.getItem('username');
+  const usuarioA =  usuarioAutenticado.nombres;//localStorage.getItem('username');
   const [defaultPicture, setDefaultPicture] = useState(profilePic);
   const [selectedPicture, setSelectedPicture] = useState(null);
 
@@ -49,20 +53,23 @@ export const DashboardSidebar = () => {
             <input className="InputImg" type="file" onChange={handlePictureChange} />
             Cambiar foto de perfil
           </label>
-          {selectedPicture && (
-            <div>
-              <Button variant="danger" className="w-10 m-1"
-                onClick={handleDeletePicture}>
-                <MdDelete />
+          <div className='flex'>
+            {selectedPicture && (
+              <div>
+                <Button variant="danger" className="w-10 m-1"
+                  onClick={handleDeletePicture}>
+                  <MdDelete />
+                </Button>
+              </div>
+            )}
+            {selectedPicture && (
+              <Button variant="primary" className="w-10 m-1 mb-2 "
+                onClick={()=>{handleSavePictures,Swal.fire("Información!", " Se ha guardado tu foto de perfil")}}>
+                  
+                <BiSolidSave />
               </Button>
-            </div>
-          )}
-          {selectedPicture && (
-            <Button variant="primary" className="w-10 m-1 mb-2 "
-              onClick={handleSavePictures}>
-              <BiSolidSave />
-            </Button>
-          )}
+            )}
+          </div>
         </div>
         <div className='textSidebar'>
           {usuarioA}
