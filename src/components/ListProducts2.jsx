@@ -14,9 +14,6 @@ import arepap from '../assets/arepap.jpg';
 import arepac from '../assets/arepac.jpg'; 
 import arepamp from '../assets/arepamp.jpg'; 
 import { useNavigate } from 'react-router-dom'
-import { ButtonCardsP } from './ButtonCardsP';
-
-const products = await fetch('http://127.0.0.1:5000/api/products')
 
 const ProductsData = [
     {
@@ -81,26 +78,7 @@ const ProductsData = [
     },
 ];
 
-const getProducts = async () => {
-    await axios
-      .get("http://127.0.0.1:5000/api/products", {
-        headers: { Authorization: `bearer ${token}`, },
-      })
-      .then((resp) => {
-        console.log(resp);
-        setData(resp.data.result);
-      })
-      .catch((err) => {
-        console.log(err);
-        if (err.response.status == 400) {
-          Swal.fire("Información!", err.response.data.message, "error");
-        } else if (err.response.status == 401) {
-          Swal.fire("Información!", err.response.data.message, "error");
-        } else {
-          Swal.fire("Información!", "Ocurrio un error!", "error");
-        }
-      });
-  };
+
 
 const ListProducts2 = () => {
 
