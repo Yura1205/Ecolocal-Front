@@ -27,6 +27,13 @@ const InfoUsers2 = () => {
     navigate('/Login');
   }
 
+
+
+  const navigate = useNavigate();
+  const meLargo = () => {
+    navigate('/Login');
+  }
+
   const endPoint = Constantes.URL_SERVICIO + "/usuarios/listar";
   const token = localStorage.getItem("token");
   const [data, setData] = useState([]);
@@ -136,4 +143,3 @@ const InfoUsers2 = () => {
   );
 };
 export default InfoUsers2;
-export {usuarioAutenticado};
