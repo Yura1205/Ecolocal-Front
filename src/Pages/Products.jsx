@@ -9,7 +9,6 @@ export const Products = () => {
     <DashboardNav/>
     <div className='products_main'>
     <ListProducts2 />
-     
     </div>
     </>
 
