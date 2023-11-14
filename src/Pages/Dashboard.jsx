@@ -4,6 +4,7 @@ import Cards1 from '../components/Cards1'
 import Cards2 from '../components/Cards2'
 import Cards3 from '../components/Cards3'
 import Carrusel from '../components/Carrusel'
+import { FooterComponent } from '../components/FooterComponent'
 
 
 export const Dashboard = () => {
@@ -22,9 +23,11 @@ export const Dashboard = () => {
                 <Cards2 />
                 <Cards3 />
               </div>
+              <FooterComponent/>
             </div>
           </div>
         </div>
+       
     </>
 
   )
