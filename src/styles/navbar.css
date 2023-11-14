@@ -4,7 +4,7 @@ header{
     left: 0;
     width: 100%;
     padding: 20px 100px;
-    background: rgb(0, 0, 0); 
+    background: rgb(0, 97, 0); 
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -55,7 +55,7 @@ header{
     margin-left: 40px;
 }
 .navigation .btnLgn-popup:hover{
-    background:rgb(20, 76, 4);
+    background:rgb(22, 80, 6);
 }
 
 .logo {
