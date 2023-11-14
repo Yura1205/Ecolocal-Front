@@ -8,7 +8,6 @@ import {usuarioAutenticado} from './InfoUsers2';
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
-
 export const DashboardSidebar = () => {
   const usuarioA =  usuarioAutenticado.nombres;//localStorage.getItem('username');
   const [defaultPicture, setDefaultPicture] = useState(profilePic);
