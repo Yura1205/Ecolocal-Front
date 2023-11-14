@@ -3,6 +3,7 @@ import profilePic from '../assets/profilePic.jpg';
 import Button from "react-bootstrap/esm/Button";
 import { MdDelete } from 'react-icons/md';
 import { BiSolidSave } from 'react-icons/bi';
+import { usuarioAutenticado } from './InfoUsers2';
 
 export const DashboardSidebar = () => {
   const usuarioA = localStorage.getItem('username');
@@ -64,7 +65,7 @@ export const DashboardSidebar = () => {
           )}
         </div>
         <div className='textSidebar'>
-          {usuarioA}
+          {usuarioAutenticado.nombres}
           <p>Bienvenid@!</p>
         </div>
       </div>

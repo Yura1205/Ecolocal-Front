@@ -1,0 +1,39 @@
+.infoMain {
+    margin-top: 10vh;
+    max-width: 100wh; /* Supongo que quisiste decir 100vw */
+  }
+  
+  .imgInfo {
+    margin-top: 2vh;
+    margin-left: 2vw;
+  }
+  
+  .tittles {
+    text-align: center;
+  }
+  
+  .infoContent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .infoText {
+    display: flex;
+    height: 50%;
+    width: 50%;
+    margin-top: 2vh;
+    align-items: center;
+    justify-content: center;
+    padding: 6% 5% 5% 5%;
+    text-align: justify;
+    font-size: 1.5rem;
+  }
+  
+  .infoContent2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }

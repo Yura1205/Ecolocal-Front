@@ -16,106 +16,94 @@ import arepamp from '../assets/arepamp.jpg';
 import { useNavigate } from 'react-router-dom'
 import { ButtonCardsP } from './ButtonCardsP';
 
+const products = await fetch('http://127.0.0.1:5000/api/products')
+
 const ProductsData = [
     {
         name: 'Bandeja Paisa',
-        description: 'Es un abundante plato colombiano que combina arroz, frijoles, carne molida, chorizo, huevo frito, chicharrón, aguacate y plátano maduro, ofreciendo una variedad de sabores y texturas.',
+        description: '',
         image: bandeja,
     },
     {
         name: 'Mazamorra Paisa',
-        description: 'Es un postre colombiano a base de maíz, leche y panela, con un toque de canela y una textura espesa y dulce.',
+        description: '',
         image: mazamorra,
     },
     {
         name: 'Fríjoles antioqueños',
-        description: 'Son un platillo típico de Antioquia, Colombia, preparados con frijoles cocidos en hogao (una salsa de tomate y cebolla) y acompañados de arroz, carne y plátano maduro frito.',
+        description: '',
         image: frijoles,
     },
     {
         name: 'Fríjoles con pezuña de cerdo',
-        description: 'Son un plato antioqueño que consiste en frijoles cocidos con una pezuña de cerdo, lo que le otorga un sabor y una textura únicos a los frijoles, creando un platillo sabroso y tradicional.',
+        description: '',
         image: frijolesp,
     },
     {
         name: 'Sancocho Antioqueño',
-        description: 'Es una sopa tradicional de Antioquia, Colombia, que se prepara con una variedad de carnes (pollo, cerdo, carne de res), yuca, plátano, papa, mazorca y condimentos, creando un caldo abundante y sabroso.',
+        description: '',
         image: sancocho,
     },
     {
         name: 'Sopa de Mondongo Antioqueño',
-        description: 'Es un plato tradicional colombiano preparado con mondongo (tripas de res o cerdo), papa, yuca, plátano, maíz y sazonado con hierbas y especias, resultando en una sopa sabrosa y reconfortante.',
+        description: '',
         image: mondongo,
     },
     {
         name: 'Morcilla antioqueña',
-        description: 'Es un embutido que se prepara con sangre de cerdo, arroz, cebolla, especias y otros ingredientes, relleno en una tripa natural o artificial, con un sabor característico.',
+        description: '',
         image: morcilla,
     },
     {
         name: 'Chorizo antioqueño',
-        description: 'Es una variedad de chorizo colombiano elaborado con carne de cerdo picada, condimentos y especias, conocido por su sabor distintivo y es común en la gastronomía colombiana.',
+        description: '',
         image: chorizo,
     },
     {
         name: 'Calentao Paisa',
-        description: 'Es un plato típico colombiano que aprovecha las sobras del desayuno tradicional colombiano, como arroz, frijoles, carne y arepa, que se recalientan juntos para crear un plato sabroso y reconfortante.',
+        description: '',
         image: calentao,
     },
     {
         name: 'Arepa Paisa',
-        description: 'Es un tipo de arepa colombiana, conocida por su tamaño más grande y su espesor. Se prepara a base de masa de maíz y se cocina en una plancha o sartén hasta que esté dorada por fuera y tierna por dentro.',
+        description: '',
         image: arepap,
     },
     {
         name: 'Arepa de Maíz Pelao',
-        description: 'Es una variante de la arepa colombiana hecha con masa de maíz pelado, que le da una textura y sabor únicos',
+        description: '',
         image: arepamp,
     },
     {
         name: 'Arepa de Choclo',
-        description: 'Es una arepa colombiana elaborada con masa de choclo o maíz tierno, lo que le otorga un sabor dulce y una textura más suave en comparación con las arepas de masa de maíz tradicionales.',
+        description: '',
         image: arepac,
     },
 ];
 
-const stylesProducts = {
-  container: {
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      marginTop: "0px",
-      maxWidth: "100wh",
-      margin: "0 auto",
-  },
-  sectionp: {
-      padding: "8rem  0 0 0",
-      marginBottom: "0rem",
-      textAlign: "center",
-  },
-  section2p: {
-    padding: "1rem  0 0 0",
-    marginBottom: "0rem",
-    textAlign: "center",
-},
-  cardp: {
-      width: "290px",
-      margin: "1rem",
-  },
-  media: {
-      height: "260px", 
-  },
-  CardMedia: {
-    height: "220px"
-  },
-  CardContent: {
-    height: "260px",
-    
-  },
-  
-};
+const getProducts = async () => {
+    await axios
+      .get("http://127.0.0.1:5000/api/products", {
+        headers: { Authorization: `bearer ${token}`, },
+      })
+      .then((resp) => {
+        console.log(resp);
+        setData(resp.data.result);
+      })
+      .catch((err) => {
+        console.log(err);
+        if (err.response.status == 400) {
+          Swal.fire("Información!", err.response.data.message, "error");
+        } else if (err.response.status == 401) {
+          Swal.fire("Información!", err.response.data.message, "error");
+        } else {
+          Swal.fire("Información!", "Ocurrio un error!", "error");
+        }
+      });
+  };
 
 const ListProducts2 = () => {
+
     const rowsp = [];
     const itemsPerRowp = 4;
     const navigate = useNavigate();
@@ -134,18 +122,18 @@ const ListProducts2 = () => {
         <>
             
             {rowsp.map((row, rowIndex) => (
-                <section key={rowIndex} style={stylesProducts.section2p}>
+                <section key={rowIndex} className='section2p'>
                     <Grid container spacing={1} justifyContent="center">
                         {row.map((service, index) => (
                             <Grid item xs={12} sm={6} md={3} key={index}>
-                                <Card style={stylesProducts.cardp}>
-                                    <CardMedia style={stylesProducts.CardMedia}
+                                <Card className='cardp'>
+                                    <CardMedia className='CardMedia'
                                         component="img"
                                         alt={service.name}
                                         height="220px" 
                                         image={service.image}
                                     />
-                                    <CardContent style={stylesProducts.CardContent}>
+                                    <CardContent className='CardContent' >
                                         <Typography variant="h5" component="div">
                                             {service.name}
                                         </Typography>
