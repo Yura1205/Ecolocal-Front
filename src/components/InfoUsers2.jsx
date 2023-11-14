@@ -134,4 +134,5 @@ const InfoUsers2 = () => {
     </>
   );
 };
+export {usuarioAutenticado};
 export default InfoUsers2;

@@ -7,7 +7,7 @@ import InfoUsers2 from './InfoUsers2';
 import {usuarioAutenticado} from './InfoUsers2';
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-import { usuarioAutenticado } from './InfoUsers2';
+
 
 export const DashboardSidebar = () => {
   const usuarioA =  usuarioAutenticado.nombres;//localStorage.getItem('username');
