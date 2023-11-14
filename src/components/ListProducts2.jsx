@@ -16,7 +16,7 @@ import arepamp from '../assets/arepamp.jpg';
 import { useNavigate } from 'react-router-dom'
 import { ButtonCardsP } from './ButtonCardsP';
 
-const products = await fetch('http://127.0.0.1:5000/api/products')
+
 
 const ProductsData = [
     {
