@@ -140,7 +140,6 @@ const ListProducts2 = () => {
                                         <Typography variant="body2" color="text.secondary">
                                             {service.description}
                                         </Typography>
-                                        <ButtonCardsP fnSaberMas={SaberMas}/>
                                     </CardContent>
                                 </Card>
                             </Grid>
