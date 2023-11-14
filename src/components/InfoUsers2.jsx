@@ -22,6 +22,14 @@ const InfoUsers2 = () => {
 
 
   const navigate = useNavigate();
+  
+  const meLargo = () => {
+    navigate('/Login');
+  }
+
+
+
+  const navigate = useNavigate();
   const meLargo = () => {
     navigate('/Login');
   }
@@ -135,4 +143,3 @@ const InfoUsers2 = () => {
   );
 };
 export default InfoUsers2;
-export {usuarioAutenticado};

@@ -77,7 +77,7 @@ const RestaurantsData = [
 ];
 export const ListRestaurants = () => {
     const rows = [];
-    const itemsPerRow = 4;
+    const itemsPerRow = 3;
 
     for (let i = 0; i < RestaurantsData.length; i += itemsPerRow) {
         const rowItems = RestaurantsData.slice(i, i + itemsPerRow);
@@ -87,11 +87,11 @@ export const ListRestaurants = () => {
     <>
     {rows.map((row, rowIndex) => (
                 <section key={rowIndex} className='section2'>
-                    <Grid container spacing={1} justifyContent="center">
+                    <Grid container spacing={3} justifyContent="center">
                         {row.map((service, index) => (
                             <Grid item xs={12} sm={6} md={3} key={index}>
                                 <Card className='cardRestaurant'>
-                                    <CardMedia className='cardMedia'
+                                    <CardMedia className='CardMedia '
                                         component="img"
                                         alt={service.name}
                                         height="220px" 
