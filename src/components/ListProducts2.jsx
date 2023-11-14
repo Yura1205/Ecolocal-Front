@@ -15,6 +15,7 @@ import arepac from '../assets/arepac.jpg';
 import arepamp from '../assets/arepamp.jpg'; 
 import { useNavigate } from 'react-router-dom'
 
+
 const ProductsData = [
     {
         name: 'Bandeja Paisa',
