@@ -8,8 +8,24 @@ import { MdDelete } from 'react-icons/md'
 import { FaUserEdit } from 'react-icons/fa'
 import ModalUsers from "./ModalUsers";
 import Constantes from "../utils/Constantes";
+import { useNavigate } from "react-router-dom";
+
+const usuarioAutenticado = /*data.find((user) => user.usuario === selected.usuario);*/{
+  nombres: 'Yura',
+  apellidos: 'Torres',
+  email: "yura12@gmail.com",
+  usuario: "yura12",
+  
+}
 
 const InfoUsers2 = () => {
+
+
+  const navigate = useNavigate();
+  const meLargo = () => {
+    navigate('/Login');
+  }
+
   const endPoint = Constantes.URL_SERVICIO + "/usuarios/listar";
   const token = localStorage.getItem("token");
   const [data, setData] = useState([]);
@@ -24,6 +40,7 @@ const InfoUsers2 = () => {
     setShow(true)
     setSelected(elemento);
   };
+  const local = () => {}
 
   const handleUsers = async () => {
     await axios
@@ -36,9 +53,9 @@ const InfoUsers2 = () => {
       .catch((err) => {
         console.log(err);
         if (err.response.status === 400 || err.response.status === 401) {
-          Swal.fire("Información!", err.response.data.message, "error");
+          //Swal.fire("Información!", err.response.data.message, "error");
         } else {
-          Swal.fire("Información!", "Ocurrió un error!", "error");
+          //Swal.fire("Información!", "Ocurrió un error!", "error");
         }
       });
   };
@@ -54,8 +71,9 @@ const InfoUsers2 = () => {
       confirmButtonText: "Sí",
     }).then(async (result) => {
       if (result.isConfirmed) {
+        navigate('/Login');
         // Acción en caso de que elijan el Sí 
-        await axios
+        /*await axios
           .delete(`${Constantes.URL_SERVICIO}/usuarios/eliminar/${element._id}`, {
             headers: { Authorization: `bearer ${token}` },
           })
@@ -70,13 +88,14 @@ const InfoUsers2 = () => {
             } else {
               Swal.fire("Información!", "Ocurrió un error!", "error");
             }
-          });
+          });*/
+
       }
     });
   };
 
   // Filtrar la lista para mostrar solo el usuario autenticado
-  const usuarioAutenticado = data.find((user) => user.usuario === selected.usuario);
+    
 
   return (
     <>
@@ -115,5 +134,5 @@ const InfoUsers2 = () => {
     </>
   );
 };
-
 export default InfoUsers2;
+export {usuarioAutenticado};

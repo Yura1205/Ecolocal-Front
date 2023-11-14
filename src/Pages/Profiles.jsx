@@ -4,14 +4,13 @@ import { DashboardNav } from '../components/DashboardNav'
 import '../styles/profiles.css'
 import InfoUsers2 from '../components/InfoUsers2'
 
-
 export const Profiles = () => {
   return (
     <>
       <DashboardNav />
       <div className='profiles_main'>
         <DashboardSidebar />
-        <InfoUsers2 />
+        <InfoUser2/>
       </div>
 
     </>
