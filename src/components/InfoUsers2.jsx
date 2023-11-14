@@ -20,16 +20,8 @@ const usuarioAutenticado = /*data.find((user) => user.usuario === selected.usuar
 
 const InfoUsers2 = () => {
 
-
   const navigate = useNavigate();
   
-  const meLargo = () => {
-    navigate('/Login');
-  }
-
-
-
-  const navigate = useNavigate();
   const meLargo = () => {
     navigate('/Login');
   }
