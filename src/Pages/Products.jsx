@@ -5,7 +5,7 @@ export const Products = () => {
   return (
     <>
     <DashboardNav/>
-    <div className='products_main'>
+    <div className='products_main2'>
     <ListProducts2 />
     </div>
     </>
