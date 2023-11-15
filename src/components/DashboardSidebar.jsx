@@ -3,10 +3,9 @@ import profilePic from '../assets/profilePic.jpg';
 import Button from "react-bootstrap/esm/Button";
 import { MdDelete } from 'react-icons/md';
 import { BiSolidSave } from 'react-icons/bi';
-import InfoUsers2 from './InfoUsers2';
 import {usuarioAutenticado} from './InfoUsers2';
 import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
+
 
 
 export const DashboardSidebar = () => {

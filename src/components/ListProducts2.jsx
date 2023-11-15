@@ -1,123 +1,66 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/listproducts2.css';
-import { Grid, Card, CardContent, CardMedia, Typography} from '@mui/material';
-import mazamorra from '../assets/Mazamorra.jpg'
-import bandeja from '../assets/bandeja.jpg'
-import sancocho from '../assets/sancocho-colombiano.jpg'
-import frijolesp from '../assets/frijolesp.jpg'; 
-import frijoles from '../assets/frijoles.jpg'; 
-import mondongo from '../assets/mondongo.jpg'; 
-import morcilla from '../assets/morcilla.jpg'; 
-import chorizo from '../assets/chorizo.jpg'; 
-import calentao from '../assets/calentao.jpg';
-import arepap from '../assets/arepap.jpg'; 
-import arepac from '../assets/arepac.jpg'; 
-import arepamp from '../assets/arepamp.jpg'; 
-import { useNavigate } from 'react-router-dom'
-
-
-const ProductsData = [
-    {
-        name: 'Bandeja Paisa',
-        description: '',
-        image: bandeja,
-    },
-    {
-        name: 'Mazamorra Paisa',
-        description: '',
-        image: mazamorra,
-    },
-    {
-        name: 'Fríjoles antioqueños',
-        description: '',
-        image: frijoles,
-    },
-    {
-        name: 'Fríjoles con pezuña de cerdo',
-        description: '',
-        image: frijolesp,
-    },
-    {
-        name: 'Sancocho Antioqueño',
-        description: '',
-        image: sancocho,
-    },
-    {
-        name: 'Sopa de Mondongo Antioqueño',
-        description: '',
-        image: mondongo,
-    },
-    {
-        name: 'Morcilla antioqueña',
-        description: '',
-        image: morcilla,
-    },
-    {
-        name: 'Chorizo antioqueño',
-        description: '',
-        image: chorizo,
-    },
-    {
-        name: 'Calentao Paisa',
-        description: '',
-        image: calentao,
-    },
-    {
-        name: 'Arepa Paisa',
-        description: '',
-        image: arepap,
-    },
-    {
-        name: 'Arepa de Maíz Pelao',
-        description: '',
-        image: arepamp,
-    },
-    {
-        name: 'Arepa de Choclo',
-        description: '',
-        image: arepac,
-    },
-];
-
-
+import { Grid, Card, CardContent, CardMedia, Typography } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 const ListProducts2 = () => {
-
-    const rowsp = [];
-    const itemsPerRowp = 4;
+    const [productsData, setProductsData] = useState([]);
+    const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
+    
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch('http://89.116.25.43:4291/api/products/listar/asc');
+                const apiData = await response.json();
+                setProductsData(apiData.result);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            } finally {
+                setLoading(false);
+            }
+        };
 
-    for (let i = 0; i < ProductsData.length; i += itemsPerRowp) {
-        const rowItemsp = ProductsData.slice(i, i + itemsPerRowp);
-        rowsp.push(rowItemsp);
+        fetchData();
+    }, []);
+
+    if (loading) {
+        return <p>Cargando...</p>;
+    }
+
+    const rows = [];
+    const itemsPerRow = 4;
+
+    for (let i = 0; i < productsData.length; i += itemsPerRow) {
+        const rowItems = productsData.slice(i, i + itemsPerRow);
+        rows.push(rowItems);
     }
 
     const SaberMas = () => {
         navigate('/Info');
     };
-    
 
     return (
         <>
-            
-            {rowsp.map((row, rowIndex) => (
+            {rows.map((row, rowIndex) => (
                 <section key={rowIndex} className='section2p'>
                     <Grid container spacing={1} justifyContent="center">
-                        {row.map((service, index) => (
+                        {row.map((product, index) => (
                             <Grid item xs={12} sm={6} md={3} key={index}>
                                 <Card className='cardp'>
-                                    <CardMedia className='CardMedia'
+                                    <CardMedia
+                                        className='CardMedia'
                                         component="img"
-                                        alt={service.name}
-                                        height="220px" 
-                                        image={service.image}
+                                        alt={product.nombre}
+                                        height="220px"
+                                        image={product.img}
                                     />
-                                    <CardContent className='CardContent' >
+                                    <CardContent className='CardContent'>
                                         <Typography variant="h5" component="div">
-                                            {service.name}
+                                            {product.nombre}
                                         </Typography>
                                         <Typography variant="body2" color="text.secondary">
-                                            {service.description}
+                                            {product.descripcion}
                                         </Typography>
                                     </CardContent>
                                 </Card>
@@ -129,6 +72,5 @@ const ListProducts2 = () => {
         </>
     );
 };
-
 
 export default ListProducts2;
